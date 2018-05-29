@@ -14,12 +14,6 @@
     border-radius: 5px;
     box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
     font-family: 'Lato', sans-serif;
+    color:#303952;
 }
 
-.liLook {
-	cursor: pointer;
-}
-
-.liLook:hover {
-	text-decoration: underline;
-}

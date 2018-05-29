@@ -1,15 +1,13 @@
 import React from 'react';
-import style from './TodoList.css'
+import style from './TodoList.css';
+import LiItem from './Todo';
 
 const TodoList = props => {
-	const listItems = props.list.map(element => 
-		<li className={style.liLook} key={element.id} onClick={() => props.removeLi(element.id)}>
-			{element.text}
-		</li>
-		) 
-	return (
-		<ul className ={style.TodoLook}>{listItems}</ul> 
-	)
+  const listItems = props.list.map(element => 
+    <LiItem key={element.id} id={element.id} remove={props.removeLi} name={element.text} />)
+    return (
+      <ul className={style.TodoLook}>{listItems}</ul>
+    )
 }
 
 export default TodoList;

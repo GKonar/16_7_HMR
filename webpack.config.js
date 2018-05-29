@@ -29,7 +29,11 @@ module.exports = (env) => { // Ta funkcja jako parametr będzie zawierać środo
             rules: [
                 {
                     test: /\.js$/,
-                    loader: "babel-loader"
+                    loader: "babel-loader",
+                    options: {
+                        plugins: env !== 'production' ? ['react-hot-loader/babel'] : []
+                        //jeśli nie jesteśmy na produkcji to doajemey, a jak nie jesteśmy to dodajemy pustą tablicę
+                    }
                 },
                 {
                     test: /\.css$/,

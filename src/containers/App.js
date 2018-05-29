@@ -3,11 +3,12 @@ import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
 import TodoList from '../components/TodoList';
+import TodoForm from '../components/TodoForm';
+import { hot } from 'react-hot-loader';
 
 class App extends React.Component {
 	constructor(props){ 
 		super(props); 
-		this.removeTodo = this.removeTodo.bind(this) // do zachowania kontekstu
 		this.state = { 
 			data: [{
 				id: 1,
@@ -18,8 +19,17 @@ class App extends React.Component {
 				}, {
 				id: 3,
     				text: 'feed my cat'
-				}]
+				}, {
+				id: 4,
+    				text: 'take chill pill'		
+				}, {
+				id: 5,
+    				text: 'learn react'
+				}
+				]
 			};
+		this.removeTodo = this.removeTodo.bind(this)
+		this.addTodo = this.addTodo.bind(this)
 		}
 	
 	addTodo(val) { 
@@ -27,7 +37,7 @@ class App extends React.Component {
 			text: val,
 			id: uuid.v4(), 
 		};
-		const data = [...this.state.data, todo]; 
+		const data = [...this.state.data, todo];  // ustawianie stanu aplikacji !
 		this.setState({data});// data:data		 
 	}
 
@@ -42,12 +52,11 @@ class App extends React.Component {
     return ( // użycie pierwszego loadera CSS
         <div className={style.TodoApp}> 
 			<Title title = 'ToDo list App' tasks = 'Things to do'/>
+			<TodoForm add={this.addTodo} />
 			<TodoList list = {this.state.data} removeLi = {this.removeTodo} />
 		</div>
     );
 }				  
 }
 
-
-
-export default App;
+export default hot(module)(App);

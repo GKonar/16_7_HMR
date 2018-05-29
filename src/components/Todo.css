@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext');
+.liLook {
+	cursor: pointer;
+}
+
+.liLook:hover {
+	text-decoration: underline;
+}
